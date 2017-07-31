@@ -20,15 +20,17 @@ input[type=button]{
 }
 
 .movie0{ background: pink;}
-.movie1{ background: lime;}
-.movie2{ background: orange;}
-.movie3{ background: yellow;}
+.movie1{ background: orange;}
+.movie2{ background: yellow;}
+.movie3{ background: paleGreen;}
 .movie4{ background: lightblue;}
-.movie5{ background: aliceBlue;}
-.movie6{ background: plum;}
-.movie7{ background: khaki;}
-.movie8{ background: lawnGreen;}
-.movie9{ background: lightCoral;}
+.movie5{ background: plum;}
+.movie6{ background: salmon;}
+.movie7{ background: tan;}
+.movie8{ background: khaki;}
+.movie9{ background: yellowGreen;}
+.movie10{ background: aliceBlue;}
+.movie11{ background: mediumPurple;}
 
 #scheds{
     margin-top: 2em;
