@@ -46,7 +46,7 @@ function padZero(num){
     return num;
 }
 
-function minToStr(min)
+function minutesToStr(min)
 {
     h = Math.floor(min/60);
     m = min - h * 60;
@@ -63,7 +63,7 @@ function Period(begin, end){
 }
 
 Period.prototype.toString = function(){
-    return minToStr(this.begin) + "~" + minToStr(this.end);
+    return minutesToStr(this.begin) + "~" + minutesToStr(this.end);
 }
 
 Period.prototype.contains = function(rhs){
@@ -269,6 +269,8 @@ function collectMovieInfo(elem)
     for(var i = 1; i < showtimes.children.length -1; ++i){
         var showtime = showtimes.children[i];
         var begin = strToMinutes(showtime.innerHTML);
+        if(begin < 6*60)  //is next day
+            begin += 24*60
         
         var period = new Period(begin, begin + len);
         info.addShowtime(period);
