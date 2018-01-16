@@ -12,7 +12,7 @@ def defaultString(s, def_s):
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
-        print("usage: %s <json-file>" % sys.argv[0]);
+        print("usage: %s <theater-json>" % sys.argv[0]);
         sys.exit(1)
 
     #args
@@ -30,6 +30,7 @@ if __name__ == '__main__':
 
         os.makedirs(os.path.dirname(local), exist_ok=True)
 
+        # save url to local
         print('downloading %s to %s' % (url, local))
         with urllib.request.urlopen(url, timeout=20) as resp, open(local, 'wb') as out_file:
             shutil.copyfileobj(resp, out_file)
