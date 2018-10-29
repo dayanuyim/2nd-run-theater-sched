@@ -112,24 +112,33 @@ function Sched(movie){
     this.movies = [];
     if(movie != null)
         this.movies.push(movie);
-}
 
-Sched.prototype.begin = function(){   //Todo: make this property
-    if(this.movies.length > 0)
-        return this.movies[0].begin;
-    return null;
-}
+    Object.defineProperty(this, "begin", {
+        get: function(){
+            if(this.movies.length > 0)
+                return this.movies[0].begin;
+            return null;
+        },
+        enumerable: true
+    });
 
-Sched.prototype.end = function(){   //Todo: make this property
-    if(this.movies.length > 0)
-        return this.movies[this.movies.length - 1].end;
-    return null;
-}
+    Object.defineProperty(this, "end", {
+        get: function(){
+            if(this.movies.length > 0)
+                return this.movies[this.movies.length - 1].end;
+            return null;
+        },
+        enumerable: true
+    });
 
-Sched.prototype.duration = function(){   //Todo: make this property
-    if(this.begin() != null && this.end() != null)
-        return this.end() - this.begin();
-    return 0;
+    Object.defineProperty(this, "duration", {
+        get: function(){
+            if(this.begin != null && this.end != null)
+                return this.end - this.begin;
+            return 0;
+        },
+        enumerable: true
+    });
 }
 
 Sched.prototype.put = function(movie)
@@ -336,7 +345,7 @@ function scheduling(prop_name)
 
     var scheds = pickMovies(period, movies);
     scheds.sort(function(s1, s2){
-        return s1.duration() - s2.duration();
+        return s1.duration - s2.duration;
     });
     
     displayScheds(scheds, infos.length);
@@ -444,8 +453,8 @@ function getSchedsPeriod(scheds)
     var end = null;
     for(var i = 0; i < scheds.length; ++i){
         var sched = scheds[i];
-        if(begin == null || begin > sched.begin()) begin = sched.begin();
-        if(end   == null || end   < sched.end())   end   = sched.end();
+        if(begin == null || begin > sched.begin) begin = sched.begin;
+        if(end   == null || end   < sched.end)   end   = sched.end;
     }
 
     return new Period(begin, end);
