@@ -5,13 +5,12 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-theater_path=$(readlink -f "$1")
+theater_path=$(realpath "$1")
 outdir=$(dirname "$theater_path")
 
 
-#cd "$outdir"
+cd "$outdir"
 cat "$theater_path" | \
     grep url | \
-    awk -F'"' '{print "curl \"" $4 "\" > \"" $8 "\""}' | \
-    sed "s; > \"; > \"$outdir/;" | \
-    xargs -L1 -I {} sh -c "{}"
+    awk -F'"' '{print "curl \"" $4 "\" --output \"" $8 "\""}' | \
+    xargs -L1 -I {} sh -c "set -x && {}"
