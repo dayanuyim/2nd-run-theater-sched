@@ -1,0 +1,12 @@
+{
+  "serviceUrl": "https://localhost:7370",
+  "security": {
+    "key": "./my.key",
+    "cert": "./my.pem"
+  },
+  "redis": {
+    "host": "localhost",
+    "port": 6379,
+    "secret": "Redis-my-server"
+  }
+}

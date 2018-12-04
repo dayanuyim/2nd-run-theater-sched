@@ -3,6 +3,7 @@
 
 ### Application ###
 web/theaters/*.html
+sessions/
 
 ### macOS ###
 # General
