@@ -3,7 +3,7 @@ import '../node_modules/font-awesome/css/font-awesome.min.css';
 import './css/movie.css';
 import 'bootstrap';
 import * as templates from './templates';
-import {Period, Slot, pickSlots} from '../lib/utils.js';
+import {Period, Slot, pickSlots} from './utils.js';
 
 // Gloabel Cache
 const Theaters = {};
