@@ -33,12 +33,12 @@ export const listMovies = Handlebars.compile(`
     {{#each theater.movies}}
     <div>
         <!-- Movie -->
-        <input type="checkbox" checked class="movie">
+        <input type="checkbox" {{#if showtimes.0.picked}}checked{{/if}} class="movie">
         <a href="{{link}}" target="_blank">{{title}}</a>
         <!-- Periods -->
         <span class="periods">
             {{#each showtimes}}
-                <input type="checkbox" checked class="period" data-period-id="{{../../theater.id}}:{{@../index}}:{{@index}}">
+                <input type="checkbox" {{#if picked}}checked{{/if}} class="period" data-period-id="{{@../index}}:{{@index}}">
                 {{this}}
             {{/each}}
         </span>

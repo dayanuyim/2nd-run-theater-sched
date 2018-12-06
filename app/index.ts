@@ -48,7 +48,7 @@ const getTheater = async(theaterId) => {
         theater.movies.forEach(movie => {
             movie.showtimes = movie.showtimes.map(begin => {
                 const p = new Period(begin, begin + movie.len);
-                p['picked'] = true;   //add flag to label if is picked.
+                p['picked'] = false;   //add flag to label if is picked.
                 return p;
             });
         });
@@ -60,8 +60,8 @@ const getTheater = async(theaterId) => {
 };
 
 const setPeriodPickiness = function(periodElem){
-    const [t, m, p]  = periodElem.getAttribute('data-period-id').split(':');
-    Theaters[t].movies[m].showtimes[p].picked = periodElem.checked;
+    const [m, p]  = periodElem.getAttribute('data-period-id').split(':');
+    getCurrTheater().movies[m].showtimes[p].picked = periodElem.checked;
 }
 
 const syncMovieCheckbox = function (periodElem){
