@@ -8,7 +8,13 @@ import {Period, Slot, pickSlots} from './utils.js';
 // Gloabel Cache
 const Theaters = {};
 
-// utils =================
+// Utils ==================================================================
+
+const getCurrTheater = function(){
+    const tid = document.body.querySelector('[data-theater-id]').getAttribute('data-theater-id');
+    return Theaters[tid];
+}
+
 const unique = (value, idx, arr) => arr.indexOf(value) == idx;
 
 function toArray(obj) {
@@ -37,8 +43,36 @@ const showAlert = (message, type = 'danger') => {
 
 const listTheaters = async () => {
     const theaters = await fetchJSON('/api/list-theaters');
-    const elem = document.body.querySelector('.app-theaters');
-    elem.innerHTML = templates.listTheaters({theaters});
+    const theatersElem = document.body.querySelector('.app-theaters');
+    theatersElem.innerHTML = templates.listTheaters({theaters});
+};
+
+const showTheater = async (theaterId) => {
+    const theater = await getTheater(theaterId);
+    const moviesElem = document.body.querySelector('.app-movies');
+    moviesElem.innerHTML = templates.listMovies({theater});
+
+    // Pick/Unpick a period
+    moviesElem.querySelectorAll('.period').forEach(period => {
+        period.addEventListener('change', event => {
+            const movie = (<HTMLInputElement>event.target).closest('div').querySelector('input.movie');
+            syncMovieCheckbox(movie);
+            setPeriodPickiness(event.target);
+            scheduling();
+        });
+    });
+
+    // Change a movie's all periods
+    moviesElem.querySelectorAll('input.movie').forEach(movie => {
+        movie.addEventListener('change', event => {
+            syncPeriodCheckbox(event.target);
+            setPeriodsPickiness(event.target);
+            scheduling();
+        });
+        syncMovieCheckbox(movie);
+    });
+
+    scheduling();
 };
 
 const getTheater = async(theaterId) => {
@@ -59,34 +93,34 @@ const getTheater = async(theaterId) => {
     return theater;
 };
 
+// Period Elements Events =================================================
+
 const setPeriodPickiness = function(periodElem){
     const [m, p]  = periodElem.getAttribute('data-period-id').split(':');
     getCurrTheater().movies[m].showtimes[p].picked = periodElem.checked;
 }
+const setPeriodsPickiness = function(movieElem)
+{
+    movieElem.parentElement.querySelectorAll('input.period')
+        .forEach(setPeriodPickiness);
+};
 
-const syncMovieCheckbox = function (periodElem){
-    const picks = toArray(periodElem.parentElement.querySelectorAll('input.period'))
+const syncMovieCheckbox = function (movieElem){
+    const picks = toArray(movieElem.parentElement.querySelectorAll('input.period'))
         .map(el => (<HTMLInputElement>el).checked);
     const checked_picks = picks.filter(ck => ck);
 
-    const mv = <HTMLInputElement>periodElem.parentElement.parentElement.querySelector('input.movie');
     if (!checked_picks.length) {
-        mv.checked = false;
-        mv.indeterminate = false;
+        movieElem.checked = false;
+        movieElem.indeterminate = false;
     }
     else if (checked_picks.length === picks.length) {
-        mv.checked = true;
-        mv.indeterminate = false;
+        movieElem.checked = true;
+        movieElem.indeterminate = false;
     }
     else {
-        mv.indeterminate = true;
+        movieElem.indeterminate = true;
     }
-};
-
-const setPeriodsPickiness = function(movieElem)
-{
-    const periods = movieElem.parentElement.querySelectorAll('input.period');
-    periods.forEach(pd => setPeriodPickiness(pd));
 };
 
 const syncPeriodCheckbox = function(movieElem)
@@ -95,33 +129,15 @@ const syncPeriodCheckbox = function(movieElem)
     periods.forEach(pd => (<HTMLInputElement>pd).checked = movieElem.checked);
 };
 
-const showTheater = async (theaterId) => {
-    const theater = await getTheater(theaterId);
-    const elem = document.body.querySelector('.app-movies');
-    elem.innerHTML = templates.listMovies({theater});
 
-    // Pick/Unpick a period
-    const periods = elem.querySelectorAll('.period');
-    periods.forEach(period => {
-        period.addEventListener('change', event => {
-            syncMovieCheckbox(event.target);
-            setPeriodPickiness(event.target);
-            scheduling();
-        });
-    });
+// Scheduing ==============================================================
 
-    // Change a movie's all periods
-    const movies = elem.querySelectorAll('input.movie');
-    movies.forEach(movie => {
-        movie.addEventListener('change', event => {
-            syncPeriodCheckbox(event.target);
-            setPeriodsPickiness(event.target);
-            scheduling();
-        });
-    });
-
-    scheduling();
-};
+const scheduling = function(){
+    const theater = getCurrTheater();
+    const slots = genMovieSlots(theater);
+    const scheds = scheduleSlots(slots);
+    listSchedules(scheds);
+}
 
 const genMovieSlots = function(theater){
     return theater.movies.map(movie => {
@@ -131,6 +147,24 @@ const genMovieSlots = function(theater){
     .reduce((slots1, slots2) => slots1.concat(slots2))
     .sort((s1, s2) => s1.period.begin - s2.period.begin);
 };
+
+const scheduleSlots = function(slots)
+{
+    if(!slots.length)
+        return [];
+    
+    const labels = slots.map(s=>s.label).filter(unique);
+    console.log(`${labels.length} movies and ${slots.length} slots are picked.`);
+
+    const span = new Period(slots[0].begin, Math.max(...slots.map(s=>s.end)));
+    const scheds = pickSlots(span, slots)
+                    .filter(sched => sched.slots.length == labels.length)  // strictly contains all movies
+                    .sort((s1, s2) => s1.duration - s2.duration); // prefer short duration
+
+    console.log(`There are ${scheds.length} schedules.`);
+    //scheds.forEach(s => console.log(s.toString()));
+    return scheds;
+}
 
 const listSchedules = function(scheds){
     //prepare drawing paramters
@@ -155,36 +189,6 @@ const listSchedules = function(scheds){
     const schedElem = document.body.querySelector('.app-scheds');
     schedElem.innerHTML = templates.listSchedules({scheds});
 };
-
-const getCurrTheater = function(){
-    const tid = document.body.querySelector('[data-theater-id]').getAttribute('data-theater-id');
-    return Theaters[tid];
-}
-
-const scheduleSlots = function(slots)
-{
-    if(!slots.length)
-        return [];
-    
-    const labels = slots.map(s=>s.label).filter(unique);
-    console.log(`${labels.length} movies and ${slots.length} slots are picked.`);
-
-    const span = new Period(slots[0].begin, Math.max(...slots.map(s=>s.end)));
-    const scheds = pickSlots(span, slots)
-                    .filter(sched => sched.slots.length == labels.length)  // strictly contains all movies
-                    .sort((s1, s2) => s1.duration - s2.duration); // prefer short duration
-
-    console.log(`There are ${scheds.length} schedules.`);
-    //scheds.forEach(s => console.log(s.toString()));
-    return scheds;
-}
-
-const scheduling = function(){
-    const theater = getCurrTheater();
-    const slots = genMovieSlots(theater);
-    const scheds = scheduleSlots(slots);
-    listSchedules(scheds);
-}
 
 const showView = async () => {
     const [view, ...params] = window.location.hash.split('/');

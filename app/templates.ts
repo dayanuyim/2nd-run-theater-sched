@@ -33,7 +33,7 @@ export const listMovies = Handlebars.compile(`
     {{#each theater.movies}}
     <div>
         <!-- Movie -->
-        <input type="checkbox" {{#if showtimes.0.picked}}checked{{/if}} class="movie">
+        <input type="checkbox" class="movie">
         <a href="{{link}}" target="_blank">{{title}}</a>
         <!-- Periods -->
         <span class="periods">
