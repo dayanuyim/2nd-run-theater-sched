@@ -4,6 +4,7 @@
 ### Application ###
 web/theaters/*.html
 sessions/
+dist/
 
 ### macOS ###
 # General

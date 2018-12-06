@@ -9,8 +9,12 @@ module.exports = {
     mode: "development",
     entry: './app/index.ts',
     output: {
-        filename: 'bundle.js',
+        filename: 'app.js',
         path: path.resolve(__dirname, 'dist'),
+    },
+    resolve: {
+        // Add `.ts` and `.tsx` as a resolvable extension.
+        extensions: [".ts", ".tsx", ".js"]
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -31,7 +35,7 @@ module.exports = {
     ],
     module: {
         rules: [{
-            test: /\.ts$/,
+            test: /\.tsx?$/,
             loader: 'ts-loader',
         }, {
             test: /\.(sa|sc|c)ss$/,

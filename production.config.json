@@ -1,8 +1,8 @@
 {
   "serviceUrl": "https://localhost:7370",
   "security": {
-    "key": "./my.key",
-    "cert": "./my.pem"
+    "key": "./server.key",
+    "cert": "./server.pem"
   },
   "redis": {
     "host": "localhost",

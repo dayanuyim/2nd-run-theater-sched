@@ -1,0 +1,65 @@
+body{
+    font-family: Open Sans;
+    margin: 0px;
+}
+
+.periods{
+    position: absolute;
+    left: 35%;
+    /*display:none;*/
+}
+
+input[type=checkbox]:checked ~ .periods{
+    display: inline;
+}
+
+input[type=button]{
+    font-size: 20px;
+    padding: 5px 30px;
+    margin: 10px;
+}
+
+.app-scheds{
+    margin-top: 2em;
+}
+
+.sched{
+    height: 3em;
+    margin-bottom: 5px;
+}
+
+.sched-sn{
+    width: 4%;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.sched-slots{
+    width: 95%;
+    height: 3em;
+    display: inline-block;
+    box-sizing: border-box;
+    border: black solid 1px;
+}
+
+div.slot{
+    height: 3em;
+    display: inline-block;
+    position: absolute;
+    box-sizing: border-box;
+    border: black solid 1px;
+}
+
+.slot0{ background: pink;}
+.slot1{ background: orange;}
+.slot2{ background: yellow;}
+.slot3{ background: paleGreen;}
+.slot4{ background: lightblue;}
+.slot5{ background: plum;}
+.slot6{ background: salmon;}
+.slot7{ background: tan;}
+.slot8{ background: khaki;}
+.slot9{ background: yellowGreen;}
+.slot10{ background: aliceBlue;}
+.slot11{ background: mediumPurple;}
+

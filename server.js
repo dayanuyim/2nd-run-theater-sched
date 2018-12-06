@@ -127,8 +127,8 @@ if (isDev) {
   app.use(express.static('dist'));
 }
 
-// import lib
-// app.use('/api', require('./lib/bundle.js')(nconf.get('es')));
+// import lib router
+app.use('/api', require('./lib/theater.js')());
 
 // Startup Server
 if(isHttps){
