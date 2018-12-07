@@ -1,0 +1,889 @@
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+				<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="/assets/css/main-2.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+			<!-- jAMES + -->
+				<link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon" />
+				
+		<!-- Scripts -->			
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/jquery.dropotron.min.js"></script>
+			<script src="/assets/js/skel.min.js"></script>
+			<script src="/assets/js/skel-viewport.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="/assets/js/main.js"></script>
+		<!-- jAMES + -->
+			<script src="/assets/js/home.js"></script>
+			<script src="/assets/js/ajax-grab.js"></script>
+
+		<!--/////////******** GoogleAD廣告  **********//////////-->		
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6580532459519002",
+    enable_page_level_ads: true
+  });
+</script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-76403910-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+		<link rel="stylesheet" href="/assets/css/showtime.css" />				
+		
+			<link media="screen" rel="stylesheet" href="/assets/app/colorbox/colorbox.css" />
+			<script src="/assets/app/colorbox/jquery.min.js"></script>
+			<script src="/assets/app/colorbox/jquery.colorbox.js"></script>
+			<script>
+					$(document).ready(function(){
+						$(".openthis").colorbox({innerWidth:400, innerHeight:300});
+					});
+			</script>
+		<script>
+				$(document).ready(function(){
+					$(".openbox").colorbox();
+				});
+		</script>
+	</head>
+	<body>
+		<div id="page-wrapper">
+			<!-- Header -->
+				<header id="header">
+					<div class="logo container">
+							<p><img src="/images/logo300.gif" height=50 style="margin-right:40px;margin-left: -200px;"></p>
+							<h1 id="logo">開眼電影網</h1>						
+					</div>
+				</header>
+			<!-- Nav  選單  -->
+				
+			<!-- Nav -->  <!--  選單開始  -->
+				<nav id="nav">
+					<ul>
+						<li class="home"><a href="/home/"><img src="/images/logo100.png"></a></li>
+						<li>
+							<a href="/movie/">電 影</a>
+							<ul>
+								<li><a href="/movie/new/">本 周 新 片</a></li>
+								<li><a href="/movie/now/">本 期 首 輪</a></li>
+								<li><a href="/movie/now2/">本 期 二 輪</a></li>
+								<li><a href="/movie/next/">近 期 上 映</a></li>
+								<li><a href="/movie/next2/">新 片 快 報</a></li>
+								<li><a href="http://app2.atmovies.com.tw/boxoffice/">票 房 排 行 榜</a></li>
+								<li><a href="http://app2.atmovies.com.tw/atmdb/"> 資 料 館 </a></li>
+								<li><a href="http://search.atmovies.com.tw/"><font color=#cc0000>☆</font> 搜 尋</a></li>
+								<li><a href="http://app2.atmovies.com.tw/dvd/">DVD</a></li>
+								<li><a href="http://app2.atmovies.com.tw/music/">原聲帶</a></li>								
+							</ul>
+						</li>
+						<li class="current">
+							<a href="/showtime/">戲 院</a>
+							<ul>
+								<li><a href="/html/ticket/"><font color=#cc0000>★</font> 網路訂票 <font color=#cc0000>★</font></a></li>
+								<li><HR></li>								
+								
+									 <li><a href="/showtime/a01/"> 基  隆 </a></li>
+									 <li><a href="/showtime/a02/"> 台  北 </a></li>
+									 <li><a href="/showtime/a03/"> 桃  園 </a></li>
+									 <li><a href="/showtime/a35/"> 新  竹 </a></li>
+									 <li><a href="/showtime/a37/"> 苗  栗 </a></li>
+									
+								<li> 中部地區 
+									<ul>								
+									 <li><a href="/showtime/a04/"> 台  中 </a></li>
+									 <li><a href="/showtime/a47/"> 彰  化 </a></li>
+									 <li><a href="/showtime/a45/"> 雲  林 </a></li>
+									 <li><a href="/showtime/a49/"> 南  投 </a></li>
+									</ul>
+								</li>
+								<li> 南部地區 
+									<ul>								
+									 <li><a href="/showtime/a05/"> 嘉  義 </a></li>
+									 <li><a href="/showtime/a06/"> 台  南 </a></li>
+									 <li><a href="/showtime/a07/"> 高  雄 </a></li>
+									 <li><a href="/showtime/a87/"> 屏  東 </a></li>
+									</ul>
+								</li>
+								<li> 東部/離島地區 
+									<ul>								
+									 <li><a href="/showtime/a39/"> 宜  蘭 </a></li>
+									 <li><a href="/showtime/a38/"> 花  蓮 </a></li>
+									 <li><a href="/showtime/a89/"> 台  東 </a></li>
+									 <li><a href="/showtime/a69/"> 澎  湖 </a></li>
+									 <li><a href="/showtime/a68/"> 金  門 </a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li><a href="http://tv.atmovies.com.tw">電 視 </a>
+							<ul>
+								<li><a href="http://tv.atmovies.com.tw/tv/attv.cfm?action=showtime" target=_blank>目前放映</a></li>
+								<li><a href="http://tv.atmovies.com.tw/tv/attv.cfm?action=todaytime" target=_blank>今日節目表</a></li>
+								<li><a href="http://tv.atmovies.com.tw/tv/attv.cfm?action=channeltime" target=_blank>頻道節目表</a></li>
+								<li><a href="http://tv.atmovies.com.tw/tv/attv.cfm?action=special" target=_blank>節目精選</a></li>
+								<li><a href="http://tv.atmovies.com.tw/tv/attv.cfm?action=channel" target=_blank>頻道列表</a></li>
+								<li><a href="http://tv.atmovies.com.tw/tv/attv.cfm?action=cable" target=_blank>有線電視</a></li>
+								<li><a href="http://tv.atmovies.com.tw/tv/attv.cfm?action=search" target=_blank>節目搜尋</a></li>
+							</ul>
+						</li>
+						<li><a href="http://app2.atmovies.com.tw/news2/">新 聞</a></li>
+						<li><a href="http://app2.atmovies.com.tw/eweekly/">E週報 </a></li>
+						<!--
+						<li><a href="right-sidebar.html">藏經閣</a>
+							<ul>
+								<li><a href="left-sidebar.html">新 聞</a></li>
+								<li><a href="right-sidebar.html">影 評</a></li>
+								<li><a href="right-sidebar.html">專 題</a></li>
+								<li><a href="right-sidebar.html">專 欄</a></li>
+								<li><a href="right-sidebar.html">E週報 </a></li>
+							</ul>
+						</li>-->
+						<li><a href="#">MORE</a>
+							<ul>
+								<li><a href="http://app.atmovies.com.tw/activity/activity.cfm">活 動</a></li>
+								<li><a href="http://bbs.atmovies.com.tw/">bbs</a></li>
+								<li><a href="http://space.atmovies.com.tw/space/spacehome.cfm">分享</a></li>
+								<li><a href="http://gallery.photowant.com/B/">圖王</a></li>
+							</ul>
+						</li>
+						<li><a href="http://www.hamovie.com.tw/hamoviehome.html"> 會 員 </a></li>
+						<li class="search-image"><img src="/images/search.png" border=0 onclick="treemenu('searchID78kldtfbnsfo');"></li>
+					</ul>
+					
+					<!--////////search DIV////////-->
+						<div class="center">
+							<div class="searchFormBlock" id="searchID78kldtfbnsfo" style="display: none;">
+								<form id="searchform" name=all_search action="http://search.atmovies.com.tw/search/" method=post onsubmit="return checkinput();" autocomplete="off">
+                		<input type=hidden name=fr value="@movies-www">
+                		<input type=hidden name=enc value="UTF-8">
+										<input type="hidden" name="type" value="all">
+									<input type="text" name="search_term" id="search-field" autocomplete="off" class="form-input" placeholder=" 搜尋電影&amp;明星&amp;DVD ">
+									<input type="submit" name="sa" value="Search" class="form-submit">
+								</form>
+							</div>
+						</div>
+					<!--////////search DIV END////////-->
+
+				</nav>
+			<!--  選單結束  -->  
+<!--/////////******** ScupioAD廣告 970x250  **********//////////-->
+
+			<!-- Main -->
+				<div id="main-wrapper">
+					<div id="main" class="container">
+						<div class="row">
+
+							<div class="9u 12u(mobile) important(mobile)"><!--////  左邊內文 Content   ////-->
+								<div class="content content-left">
+									<!-- 戲院時間表 -->
+										 
+<script language="javascript">window.document.title="朝代戲院 (台北) -- @movies【開眼電影】 @movies http://www.atmovies.com.tw";</script>
+<div id="section_nav">
+	<a href="/home/">開眼</a> ﹥<a href="/showtime/">戲院</a> ﹥<a href="/showtime/a02/">台北</a> ﹥朝代戲院
+</div>
+
+
+<div style="margin-bottom:0px;border:0px solid #ccc;">
+	<!-- 戲院基本資料 -->
+		<h2>朝代戲院</h2>
+		<ul>
+			<li>地址: 台北市大同區民權西路136號4樓 
+					<a onclick="javascript:window.open('http://app2.atmovies.com.tw/movie/GMap.cfm?GAddress=%E5%8F%B0%E5%8C%97%E5%B8%82%E5%A4%A7%E5%90%8C%E5%8D%80%E6%B0%91%E6%AC%8A%E8%A5%BF%E8%B7%AF136%E8%99%9F&GName=%E6%9C%9D%E4%BB%A3%E6%88%B2%E9%99%A2','','toolbar=N,location=N,status=Yes,menubar=N,scrollbars=yes,resizable=yes,width=800,height=600')" style="cursor:pointer;">(地圖)</a>
+			<li>電話: (02)2557-1300 <li>網站: <a href="http://cfapp.atmovies.com.tw/cfcounter/theaterweblink.cfm?theaterid=t02f07&weblink=http://www.dynasty-theater.com/" target="_blank">www.dynasty-theater.com</a>
+		</ul>
+	<!-- 戲院基本資料END -->
+</div>
+<!--EZDing訂票廣告-->
+	<div id="ezDingDiv" style="width:100%;height:100%;">
+	<iframe id="ezDinGiframe" src="http://www.ezding.com.tw/pages/iframe/iframe_layout4atmovie.html?campaign=atmovie" 
+		width="100%" height="100%" marginwidth="0" marginheight="4" scrolling="no" frameborder="0" align="center"
+		style="position:static; top:0px; z-index:101;height:100%;"></iframe>
+</div> 
+<!--/////////******** Google廣告  **********//////////-->
+
+
+
+	<h3>
+		2018/11/24 (六)
+				
+	</h3>
+	<!-- theater showtime  -->
+	
+	<div id="theaterShowtimeBlock">	
+	
+				<ul id="theaterShowtimeTable">
+					<li class="filmTitle">
+				  	
+				    <a href="/movie/fcen63104988/">瘋狂亞洲富豪</a></li>
+					<li>
+						<ul>
+							<li>
+								<a href="http://www.atmovies.com.tw/movie/fcen63104988/">
+								
+		<img src="http://www.photowant.com/photo101/fcen63104988/pm_fcen63104988_0004.jpg" width=140 height=200>
+	</a>
+							</li>
+							<li><img src="/images/cer_P.gif" hspace=0 align=absmiddle /> 片長：121分</li>
+						</ul>
+						<ul>
+							<li class="filmVersion">Ａ廳</li> 
+								<li>10：20</li>
+								
+								<li>14：00</li>
+								
+								<li>18：00</li>
+								
+								<li>22：00</li>
+												  	  
+							<li class="theaterElse"><a href="/showtime/fcen63104988/a02/">其他戲院(12)</a></li>
+						</ul>
+					</li>
+				</ul>
+			
+				<ul id="theaterShowtimeTable">
+					<li class="filmTitle">
+				  	
+				    <a href="/movie/fpen43829266/">終極戰士：掠奪者</a></li>
+					<li>
+						<ul>
+							<li>
+								<a href="http://www.atmovies.com.tw/movie/fpen43829266/">
+								
+		<img src="http://www.photowant.com/photo101/fpen43829266/pm_fpen43829266_0005.jpg" width=140 height=200>
+	</a>
+							</li>
+							<li><img src="/images/cer_F5.gif" hspace=0 align=absmiddle /> 片長：101分</li>
+						</ul>
+						<ul>
+							<li class="filmVersion">Ａ廳</li> 
+								<li>12：20</li>
+								
+								<li>16：10</li>
+								
+								<li>20：00</li>
+												  	  
+							<li class="theaterElse"><a href="/showtime/fpen43829266/a02/">其他戲院(9)</a></li>
+						</ul>
+					</li>
+				</ul>
+			<div class="oneLine"></div> 
+				<ul id="theaterShowtimeTable">
+					<li class="filmTitle">
+				  	
+				    <a href="/movie/fmen74912910/">不可能的任務：全面瓦解</a></li>
+					<li>
+						<ul>
+							<li>
+								<a href="http://www.atmovies.com.tw/movie/fmen74912910/">
+								
+		<img src="http://www.photowant.com/photo101/fmen74912910/pm_fmen74912910_0005.jpg" width=140 height=200>
+	</a>
+							</li>
+							<li><img src="/images/cer_P.gif" hspace=0 align=absmiddle /> 片長：148分</li>
+						</ul>
+						<ul>
+							<li class="filmVersion">Ｂ廳</li> 
+								<li>10：20</li>
+								
+								<li>14：20</li>
+								
+								<li>18：20</li>
+								
+								<li>22：20</li>
+												  	  
+							<li class="theaterElse"><a href="/showtime/fmen74912910/a02/">其他戲院(10)</a></li>
+						</ul>
+					</li>
+				</ul>
+			
+				<ul id="theaterShowtimeTable">
+					<li class="filmTitle">
+				  	
+				    <a href="/movie/fhen95220122/">尖叫旅社3：怪獸假期</a></li>
+					<li>
+						<ul>
+							<li>
+								<a href="http://www.atmovies.com.tw/movie/fhen95220122/">
+								
+		<img src="http://www.photowant.com/photo101/fhen95220122/pm_fhen95220122_0004.jpg" width=140 height=200>
+	</a>
+							</li>
+							<li><img src="/images/cer_G.gif" hspace=0 align=absmiddle /> 片長：98分</li>
+						</ul>
+						<ul>
+							<li class="filmVersion">Ｂ廳</li> 
+								<li>12：40</li>
+								
+								<li>16：50</li>
+								
+								<li>20：40</li>
+												  	  
+							<li class="theaterElse"><a href="/showtime/fhen95220122/a02/">其他戲院(5)</a></li>
+						</ul>
+					</li>
+				</ul>
+			<div class="oneLine"></div>          
+	</div><!-- theaterShowtimeBlock showtime_block end-->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "movieTheater",
+  "name": "台北 朝代戲院",
+  "url": "http://www.dynasty-theater.com/",
+  "sameAs": "http://www.atmovies.com.tw/showtime/",
+	"image": "http://www.photowant.com/photo101/fcen63104988/pl_fcen63104988_0004.jpg",
+  "description": "上映影片：【瘋狂亞洲富豪】,【終極戰士：掠奪者】,【不可能的任務：全面瓦解】,【尖叫旅社3：怪獸假期】",
+  "address": "台灣 (103) 台北市大同區民權西路136號4樓",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "25.062735",
+    "longitude": "121.516484"
+  	},
+  "telephone": "(02)2557-1300",
+  "openingHours": "09:30-02:00",
+  "paymentAccepted": "Cash, Credit card",
+  "priceRange": "$250-$800",
+  "screenCount": 4
+}
+</script>
+
+
+<BR clear="both">
+
+<div class="update"><!-- update start -->	  
+	更新時間:2018/11/24 00:36
+	
+	<img src="http://cfapp.atmovies.com.tw/cfcounter/apphit.cfm?satype=theater&said=t02f07&fr=www" class="cfcounterImage">
+	<p><span class="at10">放映場次與時間若有錯誤，請<a href='http://app2.atmovies.com.tw/service/service.cfm?action=contact&subject=%E9%9B%BB%E5%BD%B1%E7%9C%8B%E6%9D%BF%E6%9B%B4%E6%AD%A3%20%E4%B9%8B%E3%80%90%E6%9C%9D%E4%BB%A3%E6%88%B2%E9%99%A2%E3%80%91%2D%2Dt02f07'>聯絡我們</a>儘速更正</span></p>
+</div><!-- update end -->
+
+									<DIV id="googleAD"><!--/////////******** Google廣告  **********//////////-->
+											<!--/////////******** Google廣告  **********//////////-->
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Responsive AD -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6580532459519002"
+     data-ad-slot="9308357246"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>										
+									</DIV>
+									<p align=center><a href="http://bbs.atmovies.com.tw/bbs/bbs.cfm?action=listsa&c=104&sa=t02f07&st=t" class="button"><font color=cc3366>戲院討論區</font></a>
+								</div>	<!--  class="content content-left" END -->
+							</div><!--  class="9u 12u(mobile) important(mobile)" END -->	<!--////  左邊內文 Content END  ////-->
+
+	
+							<div class="3u 12u(mobile)"><!--////  右邊 Side BAR   ////-->
+								<div class="sidebar">
+										
+										<DIV id="quickSelect"><!--///*** Quick Select  ***///-->
+											 
+
+		
+<!-- 快速查詢 quick_search start -->
+			<div class="quickSelect icon"><img src="/images/quickSelect01.gif" /></div>
+			<form nmae="quickSelect01" method="post">
+			&nbsp;◆台北戲院時間查詢
+				<select onChange="location.href=this.options[this.selectedIndex].value;" >
+					<option> ▉ 請選擇戲院 </option>
+						
+					<option value="/showtime/a02/" class="zone" >▓台北東區▼</option>
+						
+					<option value="/showtime/t02a01/a02/"  >台北信義威秀</option>
+						
+					<option value="/showtime/t02a07/a02/"  >新民生戲院</option>
+						
+					<option value="/showtime/t02a02/a02/"  >喜滿客京華影城</option>
+						
+					<option value="/showtime/t02a03/a02/"  >國賓微風影城</option>
+						
+					<option value="/showtime/t02a08/a02/"  >誠品電影院</option>
+						
+					<option value="/showtime/t02a09/a02/"  >喜樂時代影城</option>
+						
+					<option value="/showtime/t02a04/a02/"  >梅花數位影院</option>
+						
+					<option value="/showtime/t02a05/a02/"  >總督影城</option>
+						
+					<option value="/showtime/t02a06/a02/"  >哈拉影城</option>
+						
+					<option value="/showtime/a02/" class="zone" >▓台北西區▼</option>
+						
+					<option value="/showtime/t02b05/a02/"  >台北新光影城</option>
+						
+					<option value="/showtime/t02b03/a02/"  >樂聲影城</option>
+						
+					<option value="/showtime/t02b04/a02/"  >台北日新威秀</option>
+						
+					<option value="/showtime/t02b14/a02/"  >台北京站威秀</option>
+						
+					<option value="/showtime/t02b12/a02/"  >in89豪華數位影城</option>
+						
+					<option value="/showtime/t02b07/a02/"  >真善美戲院</option>
+						
+					<option value="/showtime/t02b01/a02/"  >國賓戲院</option>
+						
+					<option value="/showtime/t02b06/a02/"  >今日秀泰影城</option>
+						
+					<option value="/showtime/t02b08/a02/"  >喜滿客絕色影城</option>
+						
+					<option value="/showtime/t02b16/a02/"  >光點華山電影館</option>
+						
+					<option value="/showtime/a02/" class="zone" >▓台北南區▼</option>
+						
+					<option value="/showtime/t02c01/a02/"  >百老匯數位影城</option>
+						
+					<option value="/showtime/t02c02/a02/"  >東南亞秀泰影城</option>
+						
+					<option value="/showtime/a02/" class="zone" >▓台北北區▼</option>
+						
+					<option value="/showtime/t02d05/a02/"  >美麗華大直</option>
+						
+					<option value="/showtime/t02d04/a02/"  >華威天母</option>
+						
+					<option value="/showtime/t02d03/a02/"  >欣欣秀泰影城</option>
+						
+					<option value="/showtime/t02d02/a02/"  >國賓長春影城</option>
+						
+					<option value="/showtime/t02d06/a02/"  >美麗華皇家影城</option>
+						
+					<option value="/showtime/t02d09/a02/"  >陽明戲院</option>
+						
+					<option value="/showtime/t02d08/a02/"  >大千電影院</option>
+						
+					<option value="/showtime/t02d20/a02/"  >光點台北電影院</option>
+						
+					<option value="/showtime/a02/" class="zone" >▓新北市▼</option>
+						
+					<option value="/showtime/t02e07/a02/"  >板橋大遠百威秀影城</option>
+						
+					<option value="/showtime/t02e12/a02/"  >林口三井OUTLET威秀影城</option>
+						
+					<option value="/showtime/t02e03/a02/"  >鴻金寶麻吉影城</option>
+						
+					<option value="/showtime/t02e09/a02/"  >板橋秀泰影城</option>
+						
+					<option value="/showtime/t02e04/a02/"  >三重天台戲院</option>
+						
+					<option value="/showtime/t02e10/a02/"  >國賓林口昕境廣場</option>
+						
+					<option value="/showtime/t02e06/a02/"  >國賓環球影城</option>
+						
+					<option value="/showtime/t02e11/a02/"  >國賓新莊晶冠廣場影城</option>
+						
+					<option value="/showtime/t02e13/a02/"  >樹林秀泰影城</option>
+						
+					<option value="/showtime/t02e15/a02/"  >土城秀泰影城</option>
+						
+					<option value="/showtime/t02e08/a02/"  >府中15</option>
+						
+					<option value="/showtime/a02/" class="zone" >▓台北二輪▼</option>
+						
+					<option value="/showtime/t02f05/a02/"  >景美佳佳戲院</option>
+						
+					<option value="/showtime/t02f08/a02/"  >湳山戲院</option>
+						
+					<option value="/showtime/t02f07/a02/"  >朝代戲院</option>
+						
+					<option value="/showtime/t02e02/a02/"  >林園電影城</option>
+						
+				</select>
+
+			&nbsp;◆台北電影時間查詢
+				<select onChange="location.href=this.options[this.selectedIndex].value;" >		
+					<option> ▉ 請選擇影片 </option>
+					<option value="/movie/now/" >-----------首輪影片------------------</option>
+         		
+          <option value="/showtime/frcn95582017/a02/"> 
+             ★人面魚：紅衣小女孩外傳</option>
+          <option value="/showtime/fsno56523720/a02/"> 
+             ★芮氏9.6</option>
+          <option value="/showtime/fpjp48306022/a02/"> 
+             ★龐克武士</option>
+          <option value="/showtime/fdde56263618/a02/"> 
+             ★賣場華爾滋</option>
+          <option value="/showtime/fnjp91115387/a02/"> 
+             ★電影版七大罪：天空的囚人</option>
+          <option value="/showtime/fben86628394/a02/"> 
+             ★壞事大飯店</option>
+          <option value="/showtime/fdcn41408177/a02/"> 
+             ★非同凡響</option>
+          <option value="/showtime/fven41945228/a02/"> 
+             ★時間之旅</option>
+          <option value="/showtime/fscn68206380/a02/"> 
+             ★火焰中的星空</option>
+          <option value="/showtime/fRone0312431/a02/"> 
+             ★紅高粱</option> 
+          <option value="/showtime/ffuk84123430/a02/"> 
+               怪獸與葛林戴華德的罪行</option>
+          <option value="/showtime/fdcn68831360/a02/"> 
+               誰先愛上他的</option>
+          <option value="/showtime/foen54530422/a02/"> 
+               大君主行動</option>
+          <option value="/showtime/fhen32709692/a02/"> 
+               鬼靈精</option>
+          <option value="/showtime/fsen92062568/a02/"> 
+               有五個姊姊的我就註定要單身了啊</option>
+          <option value="/showtime/fben71727824/a02/"> 
+               波希米亞狂想曲</option>
+          <option value="/showtime/faen71517451/a02/"> 
+               一個巨星的誕生</option>
+          <option value="/showtime/fhen41846589/a02/"> 
+               潛艦獵殺令</option>
+          <option value="/showtime/fgen65177088/a02/"> 
+               蜘蛛網中的女孩</option>
+          <option value="/showtime/fati48733014/a02/"> 
+               交友網戰</option>
+          <option value="/showtime/ftcn27762748/a02/"> 
+               翠絲</option>
+          <option value="/showtime/ftjp28232016/a02/"> 
+               姐姐的私廚</option>
+          <option value="/showtime/flfr46462462/a02/"> 
+               師聲對決</option>
+          <option value="/showtime/fhin46588966/a02/"> 
+               我的嗝嗝老師</option>
+          <option value="/showtime/ftcn79032045/a02/"> 
+               我想要你記得＿</option>
+          <option value="/showtime/fufr26109080/a02/"> 
+               劫局</option>
+          <option value="/showtime/fken61893269/a02/"> 
+               草間∞彌生</option>
+          <option value="/showtime/fdkr58119680/a02/"> 
+               七罪追緝令</option>
+          <option value="/showtime/fsjp48668312/a02/"> 
+               老師君主</option>
+          <option value="/showtime/fsja48765434/a02/"> 
+               聖☆哥傳</option>
+          <option value="/showtime/fbkr99151704/a02/"> 
+               Burn the Stage The Movie</option>
+          <option value="/showtime/fffr56690004/a02/"> 
+               大醫新鮮人</option>
+          <option value="/showtime/feen96498644/a02/"> 
+               艾瑞克克萊普頓：藍調天堂路</option>
+          <option value="/showtime/fckr46927152/a02/"> 
+               屍落之城</option>
+          <option value="/showtime/frcn31915893/a02/"> 
+               紅盒子</option>
+          <option value="/showtime/fven21270797/a02/"> 
+               猛毒</option>
+          <option value="/showtime/flen45989218/a02/"> 
+               生命中的美好意外</option>
+          <option value="/showtime/ftjp97339938/a02/"> 
+               那些年，我們一起追的女孩(日)</option>
+          <option value="/showtime/fikr58986842/a02/"> 
+               親密陌生人</option>
+          <option value="/showtime/flcn85859335/a02/"> 
+               疾風魅影-黑貓中隊</option>
+          <option value="/showtime/ffen31213641/a02/"> 
+               登月先鋒</option>
+          <option value="/showtime/fkjp98395162/a02/"> 
+               K SEVEN STORIES Episode5「紅之記憶」</option>
+          <option value="/showtime/fojp47914416/a02/"> 
+               一屍到底</option>
+          <option value="/showtime/fhen61502407/a02/"> 
+               月光光新慌慌</option>
+          <option value="/showtime/fccn44397342/a02/"> 
+               幸福城市</option>
+          <option value="/showtime/fufi44065552/a02/"> 
+               無名戰士</option>
+          <option value="/showtime/fucn29123253/a02/"> 
+               無雙</option>
+          <option value="/showtime/facn28039533/a02/"> 
+               吉祥</option>
+          <option value="/showtime/fctw54857725/a02/"> 
+               同學會來嗎</option>
+          <option value="/showtime/flcn73249848/a02/"> 
+               地球最後的夜晚</option>
+          <option value="/showtime/fscn21985927/a02/"> 
+               狂徒</option>
+          <option value="/showtime/fotw42742453/a02/"> 
+               幸福路上</option>
+          <option value="/showtime/A12018110105/a02/"> 
+               府中15十一月：向電影職人致敬</option>
+          <option value="/showtime/fces87949310/a02/"> 
+               鬥牛犬：米其林帝國</option>
+          <option value="/showtime/fcen96846533/a02/"> 
+               凱撒大帝：英國國家劇院現場</option>
+          <option value="/showtime/fkjp56857956/a02/"> 
+               檢方的罪人</option>
+          <option value="/showtime/fpin37218518/a02/"> 
+               護墊俠</option> 
+          <option value="/movie/now2/">-----------二輪影片------------------</option>
+         		
+          <option value="/showtime/fcen63104988/a02/"> 
+             瘋狂亞洲富豪</option>
+          <option value="/showtime/feen53766354/a02/"> 
+             私刑教育2</option>
+          <option value="/showtime/fmen74912910/a02/"> 
+             不可能的任務：全面瓦解</option>
+          <option value="/showtime/fpen43829266/a02/"> 
+             終極戰士：掠奪者</option>
+          <option value="/showtime/fehk45827590/a02/"> 
+             歐洲攻略</option>
+          <option value="/showtime/fwkr47938128/a02/"> 
+             鬼神拍檔</option>
+          <option value="/showtime/fpen36850820/a02/"> 
+             血薄荷</option>
+          <option value="/showtime/faen34244998/a02/"> 
+             極地之王</option>
+          <option value="/showtime/fpen55093026/a02/"> 
+             惡魔島</option>
+          <option value="/showtime/faes25133308/a02/"> 
+             密謀</option>
+          <option value="/showtime/fhen95220122/a02/"> 
+             尖叫旅社3：怪獸假期</option>
+          <option value="/showtime/fcjp97880466/a02/"> 
+             名偵探柯南：零的執行人</option> 
+				</select>
+			
+			&nbsp;◆台北上映影片查詢
+			<select onChange="location.href=this.options[this.selectedIndex].value;" >		
+					<option> ▉ 請選擇影片 </option>
+			  	<option value="/movie/now/a/" >-----------首輪影片------------------</option>
+       
+        	<option value="/movie/frcn95582017/"> 
+            ★人面魚：紅衣小女孩外傳</option>
+        	<option value="/movie/fsno56523720/"> 
+            ★芮氏9.6</option>
+        	<option value="/movie/fpjp48306022/"> 
+            ★龐克武士</option>
+        	<option value="/movie/fdde56263618/"> 
+            ★賣場華爾滋</option>
+        	<option value="/movie/fnjp91115387/"> 
+            ★電影版七大罪：天空的囚人</option>
+        	<option value="/movie/fben86628394/"> 
+            ★壞事大飯店</option>
+        	<option value="/movie/fdcn41408177/"> 
+            ★非同凡響</option>
+        	<option value="/movie/fven41945228/"> 
+            ★時間之旅</option>
+        	<option value="/movie/fscn68206380/"> 
+            ★火焰中的星空</option>
+        	<option value="/movie/fRone0312431/"> 
+            ★紅高粱</option> 
+        	<option value="/movie/ffuk84123430/"> 
+            怪獸與葛林戴華德的罪行</option>
+        	<option value="/movie/fdcn68831360/"> 
+            誰先愛上他的</option>
+        	<option value="/movie/foen54530422/"> 
+            大君主行動</option>
+        	<option value="/movie/fhen32709692/"> 
+            鬼靈精</option>
+        	<option value="/movie/fsen92062568/"> 
+            有五個姊姊的我就註定要單身了啊</option>
+        	<option value="/movie/fben71727824/"> 
+            波希米亞狂想曲</option>
+        	<option value="/movie/faen71517451/"> 
+            一個巨星的誕生</option>
+        	<option value="/movie/fhen41846589/"> 
+            潛艦獵殺令</option>
+        	<option value="/movie/fgen65177088/"> 
+            蜘蛛網中的女孩</option>
+        	<option value="/movie/fati48733014/"> 
+            交友網戰</option>
+        	<option value="/movie/ftcn27762748/"> 
+            翠絲</option>
+        	<option value="/movie/ftjp28232016/"> 
+            姐姐的私廚</option>
+        	<option value="/movie/flfr46462462/"> 
+            師聲對決</option>
+        	<option value="/movie/fhin46588966/"> 
+            我的嗝嗝老師</option>
+        	<option value="/movie/ftcn79032045/"> 
+            我想要你記得＿</option>
+        	<option value="/movie/fufr26109080/"> 
+            劫局</option>
+        	<option value="/movie/fken61893269/"> 
+            草間∞彌生</option>
+        	<option value="/movie/fdkr58119680/"> 
+            七罪追緝令</option>
+        	<option value="/movie/fsjp48668312/"> 
+            老師君主</option>
+        	<option value="/movie/fsja48765434/"> 
+            聖☆哥傳</option>
+        	<option value="/movie/fbkr99151704/"> 
+            Burn the Stage The Movie</option>
+        	<option value="/movie/fffr56690004/"> 
+            大醫新鮮人</option>
+        	<option value="/movie/feen96498644/"> 
+            艾瑞克克萊普頓：藍調天堂路</option>
+        	<option value="/movie/fckr46927152/"> 
+            屍落之城</option>
+        	<option value="/movie/frcn31915893/"> 
+            紅盒子</option>
+        	<option value="/movie/fven21270797/"> 
+            猛毒</option>
+        	<option value="/movie/flen45989218/"> 
+            生命中的美好意外</option>
+        	<option value="/movie/ftjp97339938/"> 
+            那些年，我們一起追的女孩(日)</option>
+        	<option value="/movie/fikr58986842/"> 
+            親密陌生人</option>
+        	<option value="/movie/flcn85859335/"> 
+            疾風魅影-黑貓中隊</option>
+        	<option value="/movie/ffen31213641/"> 
+            登月先鋒</option>
+        	<option value="/movie/fkjp98395162/"> 
+            K SEVEN STORIES Episode5「紅之記憶」</option>
+        	<option value="/movie/fojp47914416/"> 
+            一屍到底</option>
+        	<option value="/movie/fhen61502407/"> 
+            月光光新慌慌</option>
+        	<option value="/movie/fccn44397342/"> 
+            幸福城市</option>
+        	<option value="/movie/fufi44065552/"> 
+            無名戰士</option>
+        	<option value="/movie/fucn29123253/"> 
+            無雙</option>
+        	<option value="/movie/facn28039533/"> 
+            吉祥</option>
+        	<option value="/movie/fctw54857725/"> 
+            同學會來嗎</option>
+        	<option value="/movie/flcn73249848/"> 
+            地球最後的夜晚</option>
+        	<option value="/movie/fscn21985927/"> 
+            狂徒</option>
+        	<option value="/movie/fotw42742453/"> 
+            幸福路上</option>
+        	<option value="/movie/A12018110105/"> 
+            府中15十一月：向電影職人致敬</option>
+        	<option value="/movie/fces87949310/"> 
+            鬥牛犬：米其林帝國</option>
+        	<option value="/movie/fcen96846533/"> 
+            凱撒大帝：英國國家劇院現場</option>
+        	<option value="/movie/fkjp56857956/"> 
+            檢方的罪人</option>
+        	<option value="/movie/fpin37218518/"> 
+            護墊俠</option> 
+        	<option value="/movie/now2/a/">-----------二輪影片-----------------</option>
+            
+        	<option value="/movie/fcen63104988/"> 
+            瘋狂亞洲富豪</option>
+        	<option value="/movie/feen53766354/"> 
+            私刑教育2</option>
+        	<option value="/movie/fmen74912910/"> 
+            不可能的任務：全面瓦解</option>
+        	<option value="/movie/fpen43829266/"> 
+            終極戰士：掠奪者</option>
+        	<option value="/movie/fehk45827590/"> 
+            歐洲攻略</option>
+        	<option value="/movie/fwkr47938128/"> 
+            鬼神拍檔</option>
+        	<option value="/movie/fpen36850820/"> 
+            血薄荷</option>
+        	<option value="/movie/faen34244998/"> 
+            極地之王</option>
+        	<option value="/movie/fpen55093026/"> 
+            惡魔島</option>
+        	<option value="/movie/faes25133308/"> 
+            密謀</option>
+        	<option value="/movie/fhen95220122/"> 
+            尖叫旅社3：怪獸假期</option>
+        	<option value="/movie/fcjp97880466/"> 
+            名偵探柯南：零的執行人</option> 
+				</select>
+			</form>
+<!-- 快速查詢 quick_search end  -->
+
+										</DIV>
+										<DIV id="googleAD"><!--/////////******** GoogleAD廣告  **********//////////-->
+											<!--/////////******** Google廣告  **********//////////-->
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Responsive AD -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6580532459519002"
+     data-ad-slot="9308357246"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>										
+										</DIV>
+										<DIV id="googleAD"><!--/////////******** ScupioAD廣告  **********//////////-->
+											<ins class="scupioadslot"
+style="display:inline-block;width:300px;height:250px;"
+data-sca-pub="lQoYOwwoTCVQ"
+data-sca-web="225"
+data-sca-category="19"
+data-sca-cid="11016"
+data-sca-width="300px"
+data-sca-height="250px"
+data-sca-background-color="#ffffff"
+data-sca-title-color="#0000FF"
+data-sca-title-font-family="Microsoft JhengHei"
+data-sca-description-color="#333333"
+data-sca-description-font-family="Microsoft JhengHei"
+data-sca-border-color="#cccccc"
+></ins><script async src="//img.scupio.com/js/ad.js"></script>
+										</DIV>
+										<DIV id="googleAD"><!--/////////******** GoogleAD廣告  **********//////////-->
+											<script type="text/javascript"><!--
+google_ad_client = "pub-6580532459519002";
+/* 300x250, 已建立 2010/11/24 */
+google_ad_slot = "3376241901";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+										</DIV>
+								</div>
+							</div>	<!--////  右邊 Side BAR END  ////-->												
+
+					
+						</div><!--  class="row" end -->
+					</div><!-- id="main" class="container" end -->
+				</div><!-- id="main-wrapper" end -->
+
+			<!-- Footer --><!--**---------__Footer [include]__---------**-->
+						<!-- Footer -->
+				<footer id="footer" class="container">
+					<!-- Copyright -->
+						<div id="copyright">
+							<ul class="menu">
+								<li>&copy; @movies All rights reserved 開眼電影網版權所有</li>
+								<li><a href="http://app.atmovies.com.tw/service/service.cfm?action=contact">聯絡我們</a></li>
+								<li><a href="http://app.atmovies.com.tw/service/service.cfm?action=about&page=1">關於開眼</a></li> 
+								<li><a href="http://app.atmovies.com.tw/service/service.cfm?action=about&page=4">服務中心</a></li>
+								<li><a href="http://www.hamovie.com.tw/bin/memberservice/memberservice.cfm">會員服務</a></li>
+							</ul>
+						</div>
+				</footer>
+
+					<!--/////////******** CFcounter  **********//////////-->
+						
+		</div><!-- id="page-wrapper" end -->
+<script language="javascript">
+	window.onload=newSrc;
+	var iw = window.innerWidth;
+	var ih = window.innerHeight;
+  var newSrc1 = 'http://www.ezding.com.tw/pages/iframe/iframe_layout4atmovie.html?campaign=atmovie';
+  var newSrc2 = '/showtime/blank.html';
+	function newSrc(){
+    if (iw > 768 && iw < 1021) {
+     	document.getElementById('ezDingDiv').style.height='320px';
+    } else if (iw > 1020) {
+    	//document.getElementById('ezDinGiframe').src=newSrc2;
+    	document.getElementById('ezDingDiv').style.height='0px';
+     	//document.getElementById('ezDinGiframe').style.height='100vh';
+     	//document.getElementById('ezDinGiframe').style.position='relative';
+     	//document.getElementById('ezDinGiframe').style.top='345px';
+   };
+	}
+</script>
+	</body>
+</html>

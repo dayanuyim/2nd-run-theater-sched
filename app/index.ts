@@ -197,8 +197,9 @@ const showView = async () => {
             await listTheaters();
             break;
         case '#view-theater':
-            const theaterId = params[0];
-            await showTheater(theaterId);
+            if(document.body.querySelector('.nav') == null)
+                await listTheaters();
+            await showTheater(params[0]);
             break;
         default:
             throw Error(`Unrecognized view: ${view}`);

@@ -3,9 +3,10 @@ import * as Handlebars from '../node_modules/handlebars/dist/handlebars.js';
 export const main = Handlebars.compile(`
     <div class="container">
         <h1>二輪戲院排程器</h1>
-        <div class="app-alerts"></div>
-        <div class="app-theaters"></div>
-        <div class="app-movies"></div>
+        <section class="app-alerts"></section>
+        <section class="app-theaters"></section>
+        <section class="app-movies"></section>
+        <section class="app-scheds"></section>
     </div>
 `);
 
@@ -19,11 +20,11 @@ export const alert = Handlebars.compile(`
 `);
 
 export const listTheaters = Handlebars.compile(`
-    <ul>
+    <nav class="nav nav-tabs">
         {{#each theaters}}
-        <li><a href="#view-theater/{{id}}">{{name}}</a></li>
+        <a class="nav-link" href="#view-theater/{{id}}">{{name}}</a>
         {{/each}}
-    </ul>
+    </nav>
 `);
 
 export const listMovies = Handlebars.compile(`
@@ -44,8 +45,6 @@ export const listMovies = Handlebars.compile(`
         </span>
     </div>
     {{/each}}
-
-    <div class="app-scheds" </div>
 `);
 
 Handlebars.registerHelper("inc", (value, options) => parseInt(value)+1);

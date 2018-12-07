@@ -13,14 +13,8 @@ input[type=checkbox]:checked ~ .periods{
     display: inline;
 }
 
-input[type=button]{
-    font-size: 20px;
-    padding: 5px 30px;
-    margin: 10px;
-}
-
-.app-scheds{
-    margin-top: 2em;
+h1, section{
+    margin: 8px 0;
 }
 
 .sched{
