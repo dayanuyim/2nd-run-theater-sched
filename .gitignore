@@ -5,6 +5,8 @@
 web/theaters/*.html
 sessions/
 dist/
+.server.key
+.server.pem
 
 ### macOS ###
 # General
