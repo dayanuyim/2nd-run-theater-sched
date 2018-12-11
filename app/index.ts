@@ -208,7 +208,7 @@ const showView = async () => {
 
 // Page setup.
 (async () => {
-    document.body.innerHTML = templates.main();
+    document.body.innerHTML = templates.main({serviceUrl:window.location.origin});
     window.addEventListener('hashchange', showView);
     showView().catch(err => window.location.hash = '#list-theaters');
 })();

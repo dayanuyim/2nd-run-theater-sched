@@ -2,7 +2,7 @@ import * as Handlebars from '../node_modules/handlebars/dist/handlebars.js';
 
 export const main = Handlebars.compile(`
     <div class="container">
-        <h1>二輪戲院排程器</h1>
+        <h1><a href="{{serviceUrl}}">二輪戲院排程器</a></h1>
         <section class="app-alerts"></section>
         <section class="app-theaters"></section>
         <section class="app-movies"></section>
