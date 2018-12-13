@@ -1,0 +1,85 @@
+body{
+    font-family: Open Sans;
+    margin: 0px;
+}
+
+h1, section{
+    margin: 8px 0;
+}
+
+h1 a:link{ color: black; text-decoration: none; }
+h1 a:visited{ color: black; text-decoration: none; }
+h1 a:hover{ color: black; text-decoration: none; font-weight: bold;}
+h1 a:active{ color: black; text-decoration: none; font-weight: bold;}
+
+.periods{
+    position: absolute;
+    left: 35%;
+    /*display:none;*/
+}
+
+input[type=checkbox]:checked ~ .periods{
+    display: inline;
+}
+
+.sched{
+    position: relative;
+    height: 50px;
+    margin-bottom: 5px;
+}
+
+.sched-sn{
+    display: inline-block;
+    font-weight: bold;
+    padding-top: 15px;
+}
+
+.sched-slots{
+    left: 20px;
+    width: calc(100% - 20px);
+    height: 50px;
+    position: absolute;
+    display: inline-block;
+    box-sizing: border-box;
+    border: darkgray solid 1px;
+    background: lightgray;
+}
+
+div.slot{
+    color: darkslategray;
+    font-weight: bold;
+    height: 48px;
+    display: inline-block;
+    position: absolute;
+    box-sizing: border-box;
+    border: darkgray solid;
+    border-width: 0 1px;
+}
+div.slot-begin{ border-left-width: 0;}
+div.slot-end{ border-right-width: 0;}
+
+.slot0{ background: lightpink;}
+.slot0:hover{ background: lavenderblush;}
+.slot1{ background: orange;}
+.slot1:hover{ background: gold;}
+.slot2{ background: yellow;}
+.slot2:hover{ background: lightyellow;}
+.slot3{ background: lightgreen;}
+.slot3:hover{ background: palegreen;}
+.slot4{ background: lightblue;}
+.slot4:hover{ background: lightcyan;}
+.slot5{ background: plum;}
+.slot5:hover{ background: mistyrose;}
+.slot6{ background: salmon;}
+.slot6:hover{ background: lightsalmon;}
+.slot7{ background: tan;}
+.slot7:hover{ background: wheat;}
+.slot8{ background: darkkhaki;}
+.slot8:hover{ background: khaki;}
+.slot9{ background: yellowgreen;}
+.slot9:hover{ background: lawngreen;}
+.slot10{ background: lightskyblue;}
+.slot10:hover{ background: aliceblue;}
+.slot11{ background: mediumorchid;}
+.slot11:hover{ background: mediumpurple;}
+

@@ -1,6 +1,6 @@
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
-import './css/movie.css';
+import './css/app.css';
 import 'bootstrap';
 import * as templates from './templates';
 import {Period, Slot, pickSlots} from './utils.js';
@@ -167,27 +167,14 @@ const scheduleSlots = function(slots)
 }
 
 const listSchedules = function(scheds){
-    //prepare drawing paramters
-    if(scheds.length){
-        const labels = getCurrTheater().movies.map(m => m.title);
-
-        const [scale_sn, scale] = [5, 95];
-        var span = new Period(Math.min(...scheds.map(s => s.begin)),
-            Math.max(...scheds.map(s => s.end)));
-
-        scheds.forEach(sched => {
-            sched.slots.forEach(slot => {
-                // TODO '0.8' and '9' is a temperary workaround for Boostrap Container
-                slot['label_idx'] = labels.indexOf(slot.label);
-                slot['left'] = 0.8 * (scale_sn + scale * (slot.begin - span.begin) / span.duration) + 9;
-                slot['width'] = 0.8 * (scale * slot.duration / span.duration);
-            });
-        });
-    }
+    //prepare data of drawing
+    const span = (!scheds.length)? null: new Period(Math.min(...scheds.map(s => s.begin)),
+                                                    Math.max(...scheds.map(s => s.end)));
+    const labels = (!scheds.length)? null: getCurrTheater().movies.map(m => m.title);
 
     //show
     const schedElem = document.body.querySelector('.app-scheds');
-    schedElem.innerHTML = templates.listSchedules({scheds});
+    schedElem.innerHTML = templates.listSchedules({scheds, span, labels});
 };
 
 const showView = async () => {

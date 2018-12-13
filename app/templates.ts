@@ -1,5 +1,26 @@
 import * as Handlebars from '../node_modules/handlebars/dist/handlebars.js';
 
+Handlebars.registerHelper("inc", (value, options) => parseInt(value)+1);
+Handlebars.registerHelper("indexOf", (arr, elem, options) => arr.indexOf(elem));
+Handlebars.registerHelper("ifeql", function(v1, v2, options){
+    return (v1 === v2)? options.fn(this): options.inverse(this);
+});
+
+Handlebars.registerHelper("offset", (span, begin, options) => 100 * (begin-span.begin) / span.duration);
+Handlebars.registerHelper("ratio", (span, duration, options) => 100 * duration / span.duration);
+
+Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
+    lvalue = parseFloat(lvalue);
+    rvalue = parseFloat(rvalue);
+    return {
+        "+": lvalue + rvalue,
+        "-": lvalue - rvalue,
+        "*": lvalue * rvalue,
+        "/": lvalue / rvalue,
+        "%": lvalue % rvalue
+    }[operator];
+});
+
 export const main = Handlebars.compile(`
     <div class="container">
         <h1><a href="{{serviceUrl}}">二輪戲院排程器</a></h1>
@@ -47,8 +68,6 @@ export const listMovies = Handlebars.compile(`
     {{/each}}
 `);
 
-Handlebars.registerHelper("inc", (value, options) => parseInt(value)+1);
-
 export const listSchedules = Handlebars.compile(`
     {{#if scheds}}
         {{#each scheds}}
@@ -56,7 +75,11 @@ export const listSchedules = Handlebars.compile(`
             <div class="sched-sn">{{inc @index}}</div>
             <div class="sched-slots">
                 {{#each slots}}
-                    <div class="slot slot{{label_idx}}" style="left:{{left}}%; width:{{width}}%">
+                    <div class="slot slot{{indexOf ../../labels label}}
+                                {{#ifeql ../../span.begin begin}}slot-begin{{/ifeql}}
+                                {{#ifeql ../../span.end end}}slot-end{{/ifeql}}"
+                         style="left:{{offset ../../span begin}}%;
+                                width:{{ratio ../../span duration}}%">
                         {{label}}<br>{{period}}
                     </div>
                 {{/each}}
