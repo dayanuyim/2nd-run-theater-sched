@@ -31,7 +31,8 @@ input[type=checkbox]:checked ~ .periods{
 .sched-sn{
     display: inline-block;
     font-weight: bold;
-    padding-top: 15px;
+    line-height: 50px;
+    vertical-align: middle;
 }
 
 .sched-slots{
@@ -44,6 +45,13 @@ input[type=checkbox]:checked ~ .periods{
     border: darkgray solid 1px;
     background: lightgray;
 }
+
+.slot-gap{
+    height: 48px;
+    position: absolute;
+    background-color: lightgray;
+}
+.slot-gap:hover{ background-color: ghostwhite;}
 
 div.slot{
     color: darkslategray;

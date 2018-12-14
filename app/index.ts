@@ -15,6 +15,10 @@ const getCurrTheater = function(){
     return Theaters[tid];
 }
 
+const forPair = function(arr){
+    return arr.slice(1).map( (e, i) => [arr[i], e]);
+}
+
 const unique = (value, idx, arr) => arr.indexOf(value) == idx;
 
 function toArray(obj) {
@@ -167,14 +171,29 @@ const scheduleSlots = function(slots)
 }
 
 const listSchedules = function(scheds){
-    //prepare data of drawing
-    const span = (!scheds.length)? null: new Period(Math.min(...scheds.map(s => s.begin)),
-                                                    Math.max(...scheds.map(s => s.end)));
-    const labels = (!scheds.length)? null: getCurrTheater().movies.map(m => m.title);
-
-    //show
     const schedElem = document.body.querySelector('.app-scheds');
-    schedElem.innerHTML = templates.listSchedules({scheds, span, labels});
+    if(!scheds.length){
+        schedElem.innerHTML = templates.listSchedules({scheds});
+    }
+    else{
+        //prepare data of drawing
+        const labels = getCurrTheater().movies.map(m => m.title);
+        const span = new Period(Math.min(...scheds.map(s => s.begin)),
+                                Math.max(...scheds.map(s => s.end)));
+
+        //add gaps between movie slots
+        const genGap = (begin, end) => (begin < end)? new Slot('<GAP>', new Period(begin ,end)): null;
+
+        scheds.forEach(sched => {
+            sched['gaps'] = [ genGap(span.begin, sched.slots[0].begin),
+                              ...forPair(sched.slots).map(([s1, s2]) => genGap(s1.end, s2.begin)),
+                              genGap(sched.slots[sched.slots.length-1].end, span.end) ]
+                            .filter(s => s != null);
+        });
+
+        //show
+        schedElem.innerHTML = templates.listSchedules({scheds, span, labels});
+    }
 };
 
 const showView = async () => {
