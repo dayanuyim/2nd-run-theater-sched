@@ -25,7 +25,7 @@ nconf
 
 const NODE_ENV = nconf.get('NODE_ENV');
 const isDev = NODE_ENV === 'development';
-console.log(`NODE_DEV ${NODE_ENV}`);
+console.log(`NODE_ENV ${NODE_ENV}`);
 
 const serviceUrl = new URL(nconf.get('serviceUrl'));
 const isHttps = serviceUrl.protocol === 'https:';
@@ -40,18 +40,7 @@ app.use(morgan('dev'));
 app.get('/api/version', (req, res) => res.status(200).json(pkg.version));
 
 const expressSession = require('express-session');
-if (isDev) {
-  // Use FileStore in development mode.
-  const FileStore = require('session-file-store')(expressSession);
-  app.use(expressSession({
-    resave: false,
-    saveUninitialized: true,
-    secret: 'unguessable',
-    store: new FileStore(),
-  }));
-}
-else {
-  // Use RedisStore in production mode.
+if(nconf.get('redis')){
   const RedisStore = require('connect-redis')(expressSession);
   app.use(expressSession({
     resave: false,
@@ -63,56 +52,16 @@ else {
     }),
   }));
 }
+else {
+  const FileStore = require('session-file-store')(expressSession);
+  app.use(expressSession({
+    resave: false,
+    saveUninitialized: true,
+    secret: 'unguessable',
+    store: new FileStore(),
+  }));
+}
 
-// Passport Authentication.
-/*
-const __profileSample = {
-  id: '10216065177736520',
-  username: undefined,
-  displayName: '蔡宗達',
-  name:
-   { familyName: undefined,
-     givenName: undefined,
-     middleName: undefined },
-  gender: undefined,
-  profileUrl: undefined,
-  provider: 'facebook',
-  _raw: '{"name":"\\u8521\\u5b97\\u9054","id":"10216065177736520"}'
-};
-*/
-/*
-const passport = require('passport');
-passport.serializeUser((profile, done) => done(null, {
-    id: profile.id,
-    provider: profile.provider,
-}));
-passport.deserializeUser((user, done) => done(null, user));
-app.use(passport.initialize());
-app.use(passport.session());
-
-// Facebook auth
-const FacebookStrategy = require('passport-facebook').Strategy;
-passport.use(new FacebookStrategy({
-  clientID: nconf.get('auth:facebook:appID'),
-  clientSecret: nconf.get('auth:facebook:appSecret'),
-  callbackURL: new URL('/auth/facebook/callback', serviceUrl).href,
-}, (accessToken, refreshToken, profile, done) => done(null, profile)));
-app.get('/auth/facebook', passport.authenticate('facebook'));
-app.get('/auth/facebook/callback', passport.authenticate('facebook', {
-  successRedirect: '/',
-  failureRedirect: '/',
-}))
-
-app.get('/api/session', (req, res) => {
-  const session = {auth: req.isAuthenticated()};
-  res.status(200).json(session);
-});
-
-app.get('/auth/signout', (req, res) => {
-  req.logout();
-  res.redirect('/');
-})
-*/
 
 // Serve webpack assets.
 if (isDev) {

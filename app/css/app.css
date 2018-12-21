@@ -32,7 +32,6 @@ input[type=checkbox]:checked ~ .periods{
     display: inline-block;
     font-weight: bold;
     line-height: 50px;
-    vertical-align: middle;
 }
 
 .sched-slots{
@@ -43,7 +42,7 @@ input[type=checkbox]:checked ~ .periods{
     display: inline-block;
     box-sizing: border-box;
     border: darkgray solid 1px;
-    background: lightgray;
+    /*background: lightgray;*/
 }
 
 .slot-gap{
@@ -55,6 +54,7 @@ input[type=checkbox]:checked ~ .periods{
 
 div.slot{
     color: darkslategray;
+    white-space: nowrap;
     font-weight: bold;
     height: 48px;
     display: inline-block;
@@ -62,6 +62,7 @@ div.slot{
     box-sizing: border-box;
     border: darkgray solid;
     border-width: 0 1px;
+    z-index: 1;  /* keep nowarp text top */
 }
 div.slot-begin{ border-left-width: 0;}
 div.slot-end{ border-right-width: 0;}

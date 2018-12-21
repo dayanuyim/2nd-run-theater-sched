@@ -1,5 +1,5 @@
 {
-  "serviceUrl": "https://localhost:7370",
+  "serviceUrl": "http://localhost:7370",
   "security": {
     "key": "./server.key",
     "cert": "./server.pem"

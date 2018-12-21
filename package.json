@@ -1,8 +1,8 @@
 {
-  "name": "b4-app",
+  "name": "2RT-scheduler",
   "version": "1.0.0",
   "private": true,
-  "description": "Better Book Bundle Builder",
+  "description": "2nd Run Theater Scheduler",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
