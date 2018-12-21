@@ -35,7 +35,6 @@ morgan.token('date', (req, res, tz) => {
 
 const app = express();
 app.use(morgan(colors.green(nconf.get('log:format'))));
-app.use(morgan('dev'));
 app.get('/api/version', (req, res) => res.status(200).json(pkg.version));
 
 if(nconf.get('redis')){
