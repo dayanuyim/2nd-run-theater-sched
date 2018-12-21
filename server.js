@@ -1,19 +1,16 @@
-/***
- * Excerpted from "Node.js 8 the Right Way",
- * published by The Pragmatic Bookshelf.
- * Copyrights apply to this code. It may not be used to create training material,
- * courses, books, articles, and the like. Contact us if you are in doubt.
- * We make no guarantees that this code is fit for any purpose.
- * Visit http://www.pragmaticprogrammer.com/titles/jwnode2 for more book information.
-***/
 'use strict';
+const nconf = require('nconf');
 const pkg = require('./package.json');
 const {URL} = require('url');
 const path = require('path');
 const fs = require('fs');
+const express = require('express');
+const expressSession = require('express-session');
+const moment = require('moment-timezone');
+const morgan = require('morgan');
+const colors = require('colors/safe');
 
-// nconf configuration.
-const nconf = require('nconf');
+// config =============================
 nconf
   .argv()
   .env('__')
@@ -31,15 +28,16 @@ const serviceUrl = new URL(nconf.get('serviceUrl'));
 const isHttps = serviceUrl.protocol === 'https:';
 const servicePort = serviceUrl.port || (isHttps? 443 : 80);
 
-// Express and middleware.
-const express = require('express');
-const app = express();
+// Express =============================
+morgan.token('date', (req, res, tz) => {
+    return moment().tz(tz).format(nconf.get('log:dateFormat'));
+});
 
-const morgan = require('morgan');
+const app = express();
+app.use(morgan(colors.green(nconf.get('log:format'))));
 app.use(morgan('dev'));
 app.get('/api/version', (req, res) => res.status(200).json(pkg.version));
 
-const expressSession = require('express-session');
 if(nconf.get('redis')){
   const RedisStore = require('connect-redis')(expressSession);
   app.use(expressSession({
