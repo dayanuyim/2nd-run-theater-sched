@@ -6,9 +6,6 @@ const path = require('path');
 const fs = require('fs');
 const express = require('express');
 const expressSession = require('express-session');
-const moment = require('moment-timezone');
-const morgan = require('morgan');
-const colors = require('colors/safe');
 
 // config =============================
 nconf
@@ -29,12 +26,19 @@ const isHttps = serviceUrl.protocol === 'https:';
 const servicePort = serviceUrl.port || (isHttps? 443 : 80);
 
 // Express =============================
-morgan.token('date', (req, res, tz) => {
-    return moment().tz(tz).format(nconf.get('log:dateFormat'));
-});
+const logFormatter = () => {
+    const morgan = require('morgan');
+    const moment = require('moment-timezone');
+    morgan.token('date', (req, res, tz) => {
+        return moment().tz(tz).format(nconf.get('log:dateFormat'));
+    });
+
+    const {red, green, yellow} = require('colors/safe');
+    return morgan(eval('`' + nconf.get('log:format') + '`'));
+};
 
 const app = express();
-app.use(morgan(colors.green(nconf.get('log:format'))));
+app.use(logFormatter());
 app.get('/api/version', (req, res) => res.status(200).json(pkg.version));
 
 if(nconf.get('redis')){
