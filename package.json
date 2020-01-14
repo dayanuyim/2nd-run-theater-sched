@@ -6,8 +6,11 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "start": "nodemon --ignore './sessions' server.js",
+    "start": "nodemon server.js",
     "test": "mocha --watch --reporter min"
+  },
+  "nodemonConfig": {
+    "ignore": ["sessions/*", ".git/*", ".gitignore"]
   },
   "keywords": [],
   "author": "",
