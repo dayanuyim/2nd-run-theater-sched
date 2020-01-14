@@ -25,7 +25,7 @@ How to Add a Threater?
     
     _You need to check if changing-halls is allowed by yourself._
 
-2. Add a row to theaters.json, like
+2. Add a row to theaters.json, like: (note the trailing comma ',')
 
     ```
     "t03323": {"url": "http://www.atmovies.com.tw/showtime/t03323/a03", "name": "民和戲院"},
