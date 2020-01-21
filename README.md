@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Purpose
 =======
 This is a *node.js* web project to schedule movie showings for 2nd-run theaters which allow you to change halls(跑廳).
