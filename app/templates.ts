@@ -80,15 +80,15 @@ export const listSchedules = Handlebars.compile(`
                                 {{#ifeql ../../span.end end}}slot-end{{/ifeql}}"
                          style="left:{{offset ../../span begin}}%;
                                 width:{{ratio ../../span duration}}%"
-                         title="{{period}} ({{duration}} min)">
-                        {{label}}<br>{{period}}
+                         data-tooltip="{{duration}} min">
+                        <span>{{label}}<br>{{period}}</span>
                     </div>
                 {{/each}}
                 {{#each gaps}}
                     <div class="slot-gap"
                          style="left:{{offset ../../span begin}}%;
                                 width:{{ratio ../../span duration}}%"
-                         title="{{duration}} min">
+                         data-tooltip="{{duration}} min">
                     </div>
                 {{/each}}
             </div>

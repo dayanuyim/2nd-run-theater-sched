@@ -1,5 +1,7 @@
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
+//import '../node_modules/css-tooltip/dist/css-tooltip.css';
+import './css/css-tooltip.css';
 import './css/app.css';
 import 'bootstrap';
 import * as templates from './templates';
