@@ -77,7 +77,8 @@ export const listSchedules = Handlebars.compile(`
                 {{#each slots}}
                     <div class="slot slot{{indexOf ../../labels label}}
                                 {{#ifeql ../../span.begin begin}}slot-begin{{/ifeql}}
-                                {{#ifeql ../../span.end end}}slot-end{{/ifeql}}"
+                                {{#ifeql ../../span.end end}}slot-end{{/ifeql}}
+                                tooltip-bottom"
                          style="left:{{offset ../../span begin}}%;
                                 width:{{ratio ../../span duration}}%"
                          data-tooltip="{{duration}} min">
@@ -85,7 +86,7 @@ export const listSchedules = Handlebars.compile(`
                     </div>
                 {{/each}}
                 {{#each gaps}}
-                    <div class="slot-gap"
+                    <div class="slot-gap tooltip-bottom"
                          style="left:{{offset ../../span begin}}%;
                                 width:{{ratio ../../span duration}}%"
                          data-tooltip="{{duration}} min">
