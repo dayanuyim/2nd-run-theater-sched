@@ -23,6 +23,32 @@ function minutesToStr(min)
     return padZero(h) + ":" + padZero(m);
 }
 
+export function dropFile(el, callback)
+{
+    const unpropagate = (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+    }
+    el.addEventListener('dragenter', unpropagate, false);
+
+    el.addEventListener('dragover', e => {
+        unpropagate(e);
+        e.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+    }, false);
+
+    el.addEventListener('drop', e => {
+        unpropagate(e);
+        Array.from(e.dataTransfer.files).forEach(file => {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                if(callback)
+                    setImmediate(()=>callback(e.target.result));  // yield cpu
+            }
+            reader.readAsText(file, "UTF-8");
+        })
+    }, false);
+}
+
 // Period ===================================
 export const Period = function(begin, end){
     this.begin = begin;

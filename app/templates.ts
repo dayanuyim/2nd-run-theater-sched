@@ -25,6 +25,7 @@ export const main = Handlebars.compile(`
     <div class="container">
         <h1><a href="{{serviceUrl}}">二輪戲院排程器</a></h1>
         <section class="app-alerts"></section>
+        <section class="app-add-theater"></section>
         <section class="app-theaters"></section>
         <section class="app-movies"></section>
         <section class="app-scheds"></section>
@@ -40,10 +41,49 @@ export const alert = Handlebars.compile(`
     </div>
 `);
 
-export const listTheaters = Handlebars.compile(`
+export const theaterModal = Handlebars.compile(`
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#theaterModal" data-whatever="@mdo">Add Theater</button>
+
+<div class="modal fade" id="theaterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Theater JSON Descriptor</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <!--<label for="message-text" class="col-form-label">Message:</label>-->
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="btn-add-theater">Add Theater</button>
+      </div>
+    </div>
+  </div>
+</div>
+`);
+
+export const nav = Handlebars.compile(`
+    {{#with theater}}
+    <a class="nav-link" href="#view-theater/{{id}}">{{name}}</a>
+    {{/with}}
+`);
+
+Handlebars.registerHelper("nav", (theater, options)=>{
+    return new Handlebars.SafeString(nav({theater}));
+});
+
+export const initNav = Handlebars.compile(`
     <nav class="nav nav-tabs">
         {{#each theaters}}
-        <a class="nav-link" href="#view-theater/{{id}}">{{name}}</a>
+            {{nav this}}
         {{/each}}
     </nav>
 `);
@@ -61,7 +101,7 @@ export const listMovies = Handlebars.compile(`
         <span class="periods">
             {{#each showtimes}}
                 <input type="checkbox" {{#if picked}}checked{{/if}} class="period" data-period-id="{{@../index}}:{{@index}}">
-                {{this}}
+                <span class="period-desc">{{this}}</span>
             {{/each}}
         </span>
     </div>

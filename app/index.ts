@@ -1,10 +1,13 @@
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import '../node_modules/font-awesome/css/font-awesome.min.css';
 import '../node_modules/css-tooltip/dist/css-tooltip.css';
 import './css/app.css';
+
+import $ from 'jquery';
+import 'popper.js';
 import 'bootstrap';
+
 import * as templates from './templates';
-import {Period, Slot, pickSlots} from './utils.js';
+import {Period, Slot, pickSlots, strToMinutes, dropFile} from './utils.js';
 
 // Gloabel Cache
 const Theaters = {};
@@ -48,12 +51,82 @@ const showAlert = (message, type = 'danger') => {
 
 const listTheaters = async () => {
     const theaters = await fetchJSON('/api/list-theaters');
-    const theatersElem = document.body.querySelector('.app-theaters');
-    theatersElem.innerHTML = templates.listTheaters({theaters});
+    document.querySelector('.app-theaters').innerHTML = templates.initNav({theaters});
+
+    document.querySelector('.app-add-theater').innerHTML = templates.theaterModal();
+    initAddModal(document.querySelector('#theaterModal'), theater => {
+        //console.log('theater: ', JSON.stringify(theater, null, 2));
+        Theaters[theater.id] = theater;
+        document.querySelector('nav').insertAdjacentHTML('afterbegin', templates.nav({theater}));
+    });
 };
+
+function initAddModal(modal: Element, cb)
+{
+    initAddModalTextarea(modal.querySelector('textarea'));
+
+    modal.querySelector<HTMLButtonElement>('#btn-add-theater').addEventListener('click', e => {
+        try{
+            const text = modal.querySelector('textarea').value;
+            const theater = data2theater(JSON.parse(text));
+            $(modal).modal('hide');
+
+            if(cb) cb(theater);
+        }
+        catch(e){
+            alert(`Parse JSON Error: ${e}`);
+        }
+    });
+}
+
+function initAddModalTextarea(textarea: HTMLTextAreaElement)
+{
+    textarea.placeholder = 
+`{
+  "name": "戲院名稱",
+  "date": "日期"
+  "movies": [
+     {
+       "title": "片名",
+       "len": 長度(分),
+       "showtimes": [ "HH:MM", "HH:MM", ..., "HH:MM" ]
+     },
+     {
+       ...
+     }
+  ]
+}
+`
+    dropFile(textarea, text => {
+        textarea.value = text;
+    });
+}
+
+function data2theater(raw)
+{
+    return {
+        id: "user-" + Object.keys(Theaters).length,
+        name: raw.name,
+        date: raw.date,
+        movies: raw.movies.map(m => ({
+            title: m.title,
+            len: m.len,
+            showtimes: m.showtimes.map(hhmm => {
+                const begin = strToMinutes(hhmm);
+                const p = new Period(begin, begin + m.len);
+                p['picked'] = false;   //add flag to label if is picked.
+                return p;
+            })
+        })),
+    }
+}
+
+
+
 
 const showTheater = async (theaterId) => {
     const theater = await getTheater(theaterId);
+    //console.log(JSON.stringify(theater, null, 2));
     const moviesElem = document.body.querySelector('.app-movies');
     moviesElem.innerHTML = templates.listMovies({theater});
 
