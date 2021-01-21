@@ -25,15 +25,6 @@ const forPair = function(arr){
 
 const unique = (value, idx, arr) => arr.indexOf(value) == idx;
 
-function toArray(obj) {
-    var array = [];
-    // iterate backwards ensuring that length is an UInt32
-    for (var i = obj.length >>> 0; i--;) {
-        array[i] = obj[i];
-    }
-    return array;
-}
-
 const fetchJSON = async (url, method = 'GET') => {
     try {
         const response = await fetch(url, { method, credentials: 'same-origin' });
@@ -122,8 +113,6 @@ function data2theater(raw)
 }
 
 
-
-
 const showTheater = async (theaterId) => {
     const theater = await getTheater(theaterId);
     //console.log(JSON.stringify(theater, null, 2));
@@ -184,21 +173,12 @@ const setPeriodsPickiness = function(movieElem)
 };
 
 const syncMovieCheckbox = function (movieElem){
-    const picks = toArray(movieElem.parentElement.querySelectorAll('input.period'))
+    const all = Array.from(movieElem.parentElement.querySelectorAll('input.period'))
         .map(el => (<HTMLInputElement>el).checked);
-    const checked_picks = picks.filter(ck => ck);
+    const checkeds = all.filter(ck => ck);
 
-    if (!checked_picks.length) {
-        movieElem.checked = false;
-        movieElem.indeterminate = false;
-    }
-    else if (checked_picks.length === picks.length) {
-        movieElem.checked = true;
-        movieElem.indeterminate = false;
-    }
-    else {
-        movieElem.indeterminate = true;
-    }
+    movieElem.indeterminate = 0 < checkeds.length && checkeds.length < all.length;
+    movieElem.checked = (checkeds.length === all.length);
 };
 
 const syncPeriodCheckbox = function(movieElem)
